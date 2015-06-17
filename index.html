@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <title>Live buzzer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/js/index.js"></script>
+</head>
+<body>
+
+<div class="row m-5">
+    <div id="main" class="col-md-8 mx-auto">
+        <div class="row m-5">
+            <button type="submit" id="host_button" class="btn btn-primary col-8 offset-2 py-4">Host</button>
+        </div>
+        <div id="joinPartyContainer" class="row m-5">
+            <button type="submit" id="joinButton" class="btn btn-secondary col-8 offset-2 py-4">Join</button>
+            <form id="joinPartyForm" class="col-8 offset-2 mt-4">
+                <!-- TODO Add validation to form ! -->
+                <div class="form-group col-10 mx-auto">
+                    <label for="partyCodeInput">Party code :</label>
+                    <input type="text" class="form-control col-12" id="partyCodeInput" placeholder="123456">
+                </div>
+                <div class="form-group col-10 mx-auto">
+                    <label for="playerNameInput">Your name :</label>
+                    <input type="text" class="form-control col-12" id="playerNameInput" placeholder="Superwoman">
+                </div>
+                <button type="submit" id="secondJoinButton" class="btn btn-primary col-8 offset-2">Join !</button>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

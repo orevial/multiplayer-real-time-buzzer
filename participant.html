@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <title>Live buzzer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/participant.js"></script>
+    <script src="https://kit.fontawesome.com/3924f35396.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="row m-5">
+    <div id="content" class="col-md-8 mx-auto">
+        <div id="player_connection_container" class="row m-5">
+            <div class="mx-auto">
+                <h2>Connect to the party !</h2>
+                <form id="player_connection_form">
+                    <div class="form-group">
+                        <label for="userNameInput">Your name</label>
+                        <input type="text" class="form-control" id="userNameInput" placeholder="Enter your name here">
+                    </div>
+                    <button type="submit" class="btn btn-primary col-12">Connect to the party !</button>
+                </form>
+            </div>
+        </div>
+        <div id="buzzer_container" class="row m-5">
+            <div class="row col-12">
+                <h2 class="mx-auto">Connected as <span id="player_name"></span></h2>
+            </div>
+            <div class="row col-12">
+                <div id="buzzer_button" class="mx-auto mt-3"></div>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="mx-auto">
+                <h2>Buzzed players:</h2>
+                <table id="buzzedPlayers" class="table"></table>
+
+                <h2>Connected players:</h2>
+                <table id="connectedPlayers" class="table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

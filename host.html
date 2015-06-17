@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+<head>
+    <title>Live buzzer</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://code.jquery.com/jquery-1.11.1.js"></script>
+    <script src="/js/common.js"></script>
+    <script src="/js/host.js"></script>
+    <script src="https://kit.fontawesome.com/3924f35396.js" crossorigin="anonymous"></script>
+</head>
+<body>
+
+<div class="row mx-5">
+    <div id="content" class="col-md-8 mx-auto">
+        <div class="row mx-5 mt-3">
+            <div class="mx-auto">
+                <h2>Buzzer party <span id="buzzerPartyId"></span></h2>
+                <p>Share either the party code or the link for participants to join:</p>
+                <!-- TODO Implement this ! -->
+                <div class="mx-auto">
+                    <span class="fas fa-keyboard mx-auto"></span> 123456 <span class="fas fa-copy"></span><br/>
+                </div>
+                <div class="mx-auto">
+                    <span class="fas fa-link"></span><a href="/join"> http://localhost:3000/join/123456 </a><span
+                        class="fas fa-copy"></span><br/>
+                </div>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="mx-auto">
+                <button type="submit" id="resetBuzzers" class="btn btn-primary col-12">Reset all buzzers</button>
+            </div>
+        </div>
+        <div class="row m-5">
+            <div class="mx-auto">
+                <h2>Buzzed players:</h2>
+                <table id="buzzedPlayers" class="table"></table>
+
+                <h2>Connected players:</h2>
+                <table id="connectedPlayers" class="table"></table>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

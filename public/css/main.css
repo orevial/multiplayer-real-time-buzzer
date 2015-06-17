@@ -1,0 +1,50 @@
+#buzzer_button {
+    height: 300px;
+    width: 300px;
+    background-color: green;
+    border-radius: 50%;
+}
+
+#buzzer_button.buzzed {
+    background-color: #bc0b00;
+}
+
+.connected #player_connection_container {
+    display: none;
+}
+
+#buzzer_container {
+    display: none;
+}
+
+.connected #buzzer_container {
+    display: flex;
+}
+
+#connectedPlayers .fa-trophy {
+    font-size: 1.5em;
+}
+
+#connectedPlayers .fa-trophy.position-1 {
+    color: #FFD700;
+}
+#connectedPlayers .fa-trophy.position-2 {
+    color: silver;
+}
+#connectedPlayers .fa-trophy.position-3 {
+    color: #614e1a;
+}
+
+#main button {
+    font-size: 1.2em;
+}
+
+#joinPartyForm {
+    transform: scaleY(0);
+    transform-origin: 50% 0;
+    transition:transform 0.2s ease;
+}
+
+#joinPartyForm.show {
+    transform: scaleY(1);
+}
