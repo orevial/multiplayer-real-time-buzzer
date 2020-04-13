@@ -1,24 +1,38 @@
-#buzzer_button {
+#buzzerButton {
     height: 300px;
     width: 300px;
     background-color: green;
     border-radius: 50%;
 }
 
-#buzzer_button.buzzed {
+#buzzerButton.buzzed {
     background-color: #bc0b00;
 }
 
-.connected #player_connection_container {
+#gameLoader {
+    border: 16px solid #f3f3f3; /* Light grey */
+    border-top: 16px solid #3498db; /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+#playerConnectionContainer,
+#gameContainer,
+#buzzerContainer,
+.gameContent
+{
     display: none;
 }
 
-#buzzer_container {
+#buzzerContainer {
     display: none;
-}
-
-.connected #buzzer_container {
-    display: flex;
 }
 
 #connectedPlayers .fa-trophy {
@@ -48,3 +62,41 @@
 #joinPartyForm.show {
     transform: scaleY(1);
 }
+
+
+/* 404 error page */
+#error-404 {
+    transition: all 0.6s;
+    height: 100%;
+}
+
+#error-404 body {
+    font-family: 'Lato', sans-serif;
+    color: #888;
+    margin: 0;
+}
+
+#error-404 #main{
+    display: table;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+}
+
+#error-404 .fof{
+    display: table-cell;
+    vertical-align: middle;
+}
+
+#error-404 .fof h1{
+    font-size: 50px;
+    display: inline-block;
+    padding-right: 12px;
+    animation: type .5s alternate infinite;
+}
+
+@keyframes type{
+    from{box-shadow: inset -3px 0px 0px #888;}
+    to{box-shadow: inset -3px 0px 0px transparent;}
+}
+/* // 404 error page */

@@ -16,26 +16,29 @@
 
 <div class="row mx-5">
     <div id="content" class="col-md-8 mx-auto">
-        <div class="row mx-5 mt-3">
+        <div id="gameLoader" class="row m-5 mx-auto"></div>
+        <div class="row mx-5 mt-3 gameContent">
             <div class="mx-auto">
-                <h2>Buzzer party <span id="buzzerPartyId"></span></h2>
-                <p>Share either the party code or the link for participants to join:</p>
-                <!-- TODO Implement this ! -->
+                <h2>Buzzer party <span class="buzzerPartyId"></span></h2>
+                <p>Share either the party code or the link for players to join:</p>
                 <div class="mx-auto">
-                    <span class="fas fa-keyboard mx-auto"></span> 123456 <span class="fas fa-copy"></span><br/>
+                    <span class="fas fa-keyboard mx-auto"></span>
+                    <span class="buzzerPartyId"></span>
+                    <span class="fas fa-copy"></span>
                 </div>
                 <div class="mx-auto">
-                    <span class="fas fa-link"></span><a href="/join"> http://localhost:3000/join/123456 </a><span
-                        class="fas fa-copy"></span><br/>
+                    <span class="fas fa-link"></span>
+                    <a id="buzzerPartyUrl" href="/join"> http://localhost:3000/join/123456 </a>
+                    <span class="fas fa-copy"></span><br/>
                 </div>
             </div>
         </div>
-        <div class="row m-5">
+        <div class="row m-5 gameContent">
             <div class="mx-auto">
                 <button type="submit" id="resetBuzzers" class="btn btn-primary col-12">Reset all buzzers</button>
             </div>
         </div>
-        <div class="row m-5">
+        <div class="row m-5 gameContent">
             <div class="mx-auto">
                 <h2>Buzzed players:</h2>
                 <table id="buzzedPlayers" class="table"></table>

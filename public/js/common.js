@@ -20,11 +20,11 @@ function displayConnectedPlayers(players) {
     }
 }
 
-function displayBuzzedPlayers(players, is_admin) {
+function displayBuzzedPlayers(players, isAdmin) {
     const table = $("#buzzedPlayers");
     table.empty();
 
-    if (is_admin) {
+    if (isAdmin) {
         table.append($('<thead>')
             .append($('<tr>')
                 .append($('<td>').text("N°"))
@@ -40,8 +40,8 @@ function displayBuzzedPlayers(players, is_admin) {
                 .append($('<td>').text(i + 1).addClass("playerIndex").attr("socketId", player.socketId))
                 .append($('<td>').text(player.name))
                 .append($('<td>').text(player.buzzedDelay))
-                .append($('<td>').html('<button type="button" class="btn btn-info decrease_player_score"><span class="fas fa-minus"></span></button>'))
-                .append($('<td>').html('<button type="button" class="btn btn-info increase_player_score"><span class="fas fa-plus"></span></button>'))
+                .append($('<td>').html('<button type="button" class="btn btn-info decreasePlayerScore"><span class="fas fa-minus"></span></button>'))
+                .append($('<td>').html('<button type="button" class="btn btn-info increasePlayerScore"><span class="fas fa-plus"></span></button>'))
             );
         }
     } else {
@@ -61,4 +61,12 @@ function displayBuzzedPlayers(players, is_admin) {
             );
         }
     }
+}
+
+function showLoader() {
+    $('#gameLoader').hide();
+}
+
+function hideLoader() {
+    $('#gameLoader').hide();
 }

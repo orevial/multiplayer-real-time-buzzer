@@ -1,5 +1,5 @@
 $(function () {
-    $('#host_button').click(function(e) {
+    $('#hostButton').click(function(e) {
         console.log("HOST button clicked...");
         window.location.href = "/host"
     });
@@ -17,7 +17,7 @@ $(function () {
         const playerName = $("#playerNameInput").val();
 
         console.log("Party code : " + partyCode + " - player name : " + playerName);
-        localStorage.setItem("playerName", playerName);
+        localStorage.setItem("player_playerName", playerName);
         window.location.href = "/join/" + partyCode;
 
         return false;
