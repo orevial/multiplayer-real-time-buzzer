@@ -96,9 +96,11 @@ $(function () {
         }
     });
 
-    function startParty(gameId, hostId) {
+    function startParty(gameId) {
         $('.buzzerPartyId').text(gameId);
-        $('#buzzerPartyUrl').text(window.location.origin + "/join/" + gameId);
+        const partyUrl = window.location.origin + "/join/" + gameId;
+        $('#buzzerPartyUrl').text(partyUrl);
+        $('#buzzerPartyUrl').attr("href", partyUrl);
         hideLoader();
         $('.gameContent').show();
     }

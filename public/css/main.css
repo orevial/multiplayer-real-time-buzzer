@@ -63,6 +63,14 @@
     transform: scaleY(1);
 }
 
+#editPlayerNameIcon {
+    color: #5b5bff;
+    margin-left: 1em;
+}
+
+#editPlayerNameForm {
+    display: none;
+}
 
 /* 404 error page */
 #error-404 {

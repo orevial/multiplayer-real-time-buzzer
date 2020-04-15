@@ -9,8 +9,7 @@ $(function () {
     *       => Should connect to party
     */
 
-    // TODO Handle changing of player name without changing the score (keep a reference to user id !)
-    // TODO Handle deconnection
+    // TODO Handle deconnection properly, keeping score and everything ...
 
     const pathParts = window.location.pathname.split("/");
     const gameId = pathParts[pathParts.length - 1];
@@ -24,7 +23,7 @@ $(function () {
     console.log("Checking whether game exists...");
     verifyGame(gameId);
 
-    $(document).keydown(function(e) {
+    $(document).keydown(function (e) {
         if (gameStarted && (e.key === 'b' || e.key === 'B')) {
             pressBuzzer();
         }
@@ -42,6 +41,30 @@ $(function () {
     $('#buzzerButton').click(function () {
         pressBuzzer();
         return false;
+    });
+
+    $('#editPlayerNameIcon').click(function () {
+        $('#editPlayerNameForm input').val($('#playerName').text())
+        togglePlayerNameDisplay();
+        togglePlayerNameEditionForm();
+    });
+
+    $('#editPlayerNameForm button').click(function () {
+        const newPlayerName = $('#editPlayerNameForm input').val();
+
+        socket.emit('message', {
+            issuer: 'player',
+            issuerId: playerId,
+            type: 'inGame',
+            action: 'changePlayerName',
+            data: newPlayerName
+        });
+
+        localStorage.setItem("player_playerName", newPlayerName);
+        $('#playerName').text(newPlayerName);
+
+        togglePlayerNameDisplay();
+        togglePlayerNameEditionForm();
     });
 
     socket.on('message', function (msg) {
@@ -95,6 +118,15 @@ $(function () {
                 break;
         }
     });
+
+    function togglePlayerNameDisplay() {
+        $('#playerNameDisplay').toggle();
+    }
+
+    function togglePlayerNameEditionForm() {
+        $('#editPlayerNameForm').toggle();
+    }
+
 
     function hidePlayerForm() {
         $('#playerConnectionContainer').hide();

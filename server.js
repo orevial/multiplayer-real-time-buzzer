@@ -144,8 +144,7 @@ function handlePlayerAction(socket, type, action, data) {
                 break;
             // TODO Make sure no other player has the same name !
             case 'joinGame':
-                // TODO Pass real index here...
-                const player = new Player(socket, data.playerName, 0);
+                const player = new Player(socket, data.playerName);
                 const joinGameId = parseInt(data.gameId);
 
                 if (gameExists(joinGameId)) {
@@ -175,6 +174,13 @@ function handlePlayerAction(socket, type, action, data) {
         const game = games.get(gameId);
 
         switch (action) {
+            // TODO Make sure no other player has the same name !
+            case 'changePlayerName':
+                game.renamePlayer(playerId, data);
+
+                game.broadcastConnectedPlayers();
+                game.broadcastBuzzedPlayers();
+                break;
             case 'buzz':
                 const playerAdded = game.addBuzzedPlayer(socketId);
                 if (playerAdded) {
@@ -238,6 +244,14 @@ Game.prototype = {
 
     addConnectedPlayer: function (player) {
         this.connectedPlayers.push(player);
+    },
+
+    renamePlayer: function (playerId, newName) {
+        this.connectedPlayers.filter(pl => pl.id === playerId)
+            .forEach(pl => {
+                console.log("Renaming player " + pl.name + " to " + newName + "...");
+                pl.name = newName;
+            });
     },
 
     removeConnectedPlayer: function (socketId) {
@@ -361,7 +375,6 @@ function Player(socket, name, index) {
     this.name = name;
     this.buzzedTime = "";
     this.buzzedDelay = "";
-    this.index = index;
     this.score = 0;
 }
 
@@ -373,7 +386,6 @@ Player.prototype = {
             name: this.name,
             buzzedTime: this.buzzedTime,
             buzzedDelay: this.buzzedDelay,
-            index: this.index,
             score: this.score,
         }
     }
